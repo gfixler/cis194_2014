@@ -34,3 +34,7 @@ doubleEveryOther = reverse . doDoubles . reverse
 sumDigits :: [Integer] -> Integer
 sumDigits = sum . map (sum . toDigits)
 
+validate :: Integer -> Bool
+validate n = checksum `mod` 10 == 0
+    where checksum = sumDigits . doubleEveryOther . toDigits $ n
+
