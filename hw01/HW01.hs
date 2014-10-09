@@ -1,6 +1,6 @@
 {-
-Name: <your name here>
-Collaborators: <your collaborators here, or "none">
+Name: Gary Fixler
+Collaborators: Ben Deane
 Notes: <any particular notes about your work -- what you struggled with,
         what's not working, what's really cool, etc.>
 -}
