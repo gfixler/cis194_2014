@@ -25,3 +25,9 @@ toDigits n
     | n < 1     = []
     | otherwise = toDigits (dropLastDigit n) ++ [lastDigit n]
 
+doubleEveryOther :: [Integer] -> [Integer]
+doubleEveryOther = reverse . doDoubles . reverse
+    where doDoubles [] = []
+          doDoubles [x] = [x]
+          doDoubles (x:y:ys) = x : y * 2 : doDoubles ys
+
