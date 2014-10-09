@@ -13,3 +13,7 @@ isThisWorking = "Yes"
 -- `isThisWorking` at the prompt. GHCi will tell you whether it's working!
 
 -- Put your work below.
+
+lastDigit :: Integer -> Integer
+lastDigit n = n - (n `div` 10 * 10)
+
