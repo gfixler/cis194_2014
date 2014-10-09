@@ -17,3 +17,6 @@ isThisWorking = "Yes"
 lastDigit :: Integer -> Integer
 lastDigit n = n - (n `div` 10 * 10)
 
+dropLastDigit :: Integer -> Integer
+dropLastDigit = (`div` 10)
+
