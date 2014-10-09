@@ -20,3 +20,8 @@ lastDigit n = n - (n `div` 10 * 10)
 dropLastDigit :: Integer -> Integer
 dropLastDigit = (`div` 10)
 
+toDigits :: Integer -> [Integer]
+toDigits n
+    | n < 1     = []
+    | otherwise = toDigits (dropLastDigit n) ++ [lastDigit n]
+
