@@ -31,3 +31,6 @@ doubleEveryOther = reverse . doDoubles . reverse
           doDoubles [x] = [x]
           doDoubles (x:y:ys) = x : y * 2 : doDoubles ys
 
+sumDigits :: [Integer] -> Integer
+sumDigits = sum . map (sum . toDigits)
+
