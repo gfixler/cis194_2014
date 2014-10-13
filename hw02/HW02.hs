@@ -40,3 +40,8 @@ formableBy (x:xs) h = if x `elem` h then formableBy xs (delete x h)
 
 wordsFrom :: Hand -> [String]
 wordsFrom hand = filter (`formableBy` hand) allWords
+
+wordFitsTemplate :: Template -> Hand -> String -> Bool
+wordFitsTemplate t h s = formableBy s h'
+    where h' = filter (\x -> x /= '?') t ++ h
+
