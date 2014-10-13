@@ -65,6 +65,5 @@ wordFight n bests (w:ws)
     where v = scrabbleValueWord w
 
 bestWords :: [String] -> [String]
-bestWords words = filter (\x -> scrabbleValueWord x == best) words
-    where best = maximum $ map scrabbleValueWord words
+bestWords = wordFight 0 []
 
