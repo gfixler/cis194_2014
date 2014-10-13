@@ -53,3 +53,6 @@ wordFitsTemplate _ _ _ = False
 wordsFittingTemplate :: Template -> Hand -> [String]
 wordsFittingTemplate t h = filter (wordFitsTemplate t h) allWords
 
+scrabbleValueWord :: String -> Int
+scrabbleValueWord = sum . map scrabbleValue
+
