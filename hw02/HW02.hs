@@ -50,3 +50,6 @@ wordFitsTemplate (t:ts) h (c:cs)
                   else False
 wordFitsTemplate _ _ _ = False
 
+wordsFittingTemplate :: Template -> Hand -> [String]
+wordsFittingTemplate t h = filter (wordFitsTemplate t h) allWords
+
