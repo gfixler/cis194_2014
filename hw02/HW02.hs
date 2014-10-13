@@ -67,3 +67,17 @@ wordFight n bests (w:ws)
 bestWords :: [String] -> [String]
 bestWords = wordFight 0 []
 
+scrabbleValueTemplate' :: Int -> Int -> STemplate -> String -> Int
+scrabbleValueTemplate' m n [] [] = m * n
+scrabbleValueTemplate' m n (t:ts) (c:cs)
+    | t == '?'  = scrabbleValueTemplate' m (n + v) ts cs
+    | t == 'D'  = scrabbleValueTemplate' m (n + v * 2) ts cs
+    | t == 'T'  = scrabbleValueTemplate' m (n + v * 3) ts cs
+    | t == '2'  = scrabbleValueTemplate' (m * 2) (n + v) ts cs
+    | t == '3'  = scrabbleValueTemplate' (m * 3) (n + v) ts cs
+    | otherwise = scrabbleValueTemplate' m (n + v) ts cs
+    where v = scrabbleValue c
+
+scrabbleValueTemplate :: STemplate -> String -> Int
+scrabbleValueTemplate = scrabbleValueTemplate' 1 0
+
