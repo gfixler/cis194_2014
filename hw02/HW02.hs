@@ -42,6 +42,11 @@ wordsFrom :: Hand -> [String]
 wordsFrom hand = filter (`formableBy` hand) allWords
 
 wordFitsTemplate :: Template -> Hand -> String -> Bool
-wordFitsTemplate t h s = length s == length t && formableBy s h'
-    where h' = filter (\x -> x /= '?') t ++ h
+wordFitsTemplate "" _ "" = True
+wordFitsTemplate (t:ts) h (c:cs)
+    | t == '?'  = if c `elem` h then wordFitsTemplate ts (delete c h) cs
+                  else False
+    | otherwise = if t == c then wordFitsTemplate ts h cs
+                  else False
+wordFitsTemplate _ _ _ = False
 
