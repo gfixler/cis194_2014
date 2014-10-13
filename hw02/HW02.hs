@@ -56,6 +56,14 @@ wordsFittingTemplate t h = filter (wordFitsTemplate t h) allWords
 scrabbleValueWord :: String -> Int
 scrabbleValueWord = sum . map scrabbleValue
 
+wordFight :: Int -> [String] -> [String] -> [String]
+wordFight _ bests [] = bests
+wordFight n bests (w:ws)
+    | n > v = wordFight n bests ws
+    | n < v = wordFight v [w] ws
+    | otherwise = wordFight n (w:bests) ws
+    where v = scrabbleValueWord w
+
 bestWords :: [String] -> [String]
 bestWords words = filter (\x -> scrabbleValueWord x == best) words
     where best = maximum $ map scrabbleValueWord words
