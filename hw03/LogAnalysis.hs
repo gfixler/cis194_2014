@@ -61,10 +61,12 @@ whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong = whatWentWrong'. sortMessages
 
 
+messageContains :: String -> LogMessage -> Bool
+messageContains s lm = target `isInfixOf` message
+    where target  = map toUpper s
+          message = map toUpper $ getLogMsg lm
+
 messagesAbout :: String -> [LogMessage] -> [LogMessage]
-messagesAbout _ [] = []
-messagesAbout s (x@(LogMessage _ _ s'):xs) =
-    if (map toUpper s) `isInfixOf` (map toUpper s')
-    then x : messagesAbout s xs
-    else messagesAbout s xs
+messagesAbout s = filter (messageContains s)
+
 
