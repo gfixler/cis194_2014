@@ -26,3 +26,9 @@ parseMessage' s              = InvalidLM (unwords s)
 parseMessage :: String -> MaybeLogMessage
 parseMessage = parseMessage' . words
 
+
+validMessagesOnly :: [MaybeLogMessage] -> [LogMessage]
+validMessagesOnly []                 = []
+validMessagesOnly ((ValidLM x):xs)   = x : validMessagesOnly xs
+validMessagesOnly ((InvalidLM _):xs) = validMessagesOnly xs
+
