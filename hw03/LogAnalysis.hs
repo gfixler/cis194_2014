@@ -3,6 +3,7 @@
 module LogAnalysis where
 
 import Log
+import Data.List
 
 handleError :: String -> MaybeInt -> MaybeInt -> [String] -> MaybeLogMessage
 handleError _ (ValidInt l) (ValidInt t) xs =
@@ -39,4 +40,8 @@ parse = validMessagesOnly . map parseMessage . lines
 
 compareMsgs :: LogMessage -> LogMessage -> Ordering
 compareMsgs (LogMessage _ t _) (LogMessage _ t' _) = compare t t'
+
+
+sortMessages :: [LogMessage] -> [LogMessage]
+sortMessages = sortBy compareMsgs
 
