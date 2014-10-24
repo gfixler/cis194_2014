@@ -55,10 +55,7 @@ getLogMsg :: LogMessage -> String
 getLogMsg (LogMessage _ _ s) = s
 
 whatWentWrong' :: [LogMessage] -> [String]
-whatWentWrong' [] = []
-whatWentWrong' (x:xs) = if highSeverity x
-                        then getLogMsg x : whatWentWrong' xs
-                        else whatWentWrong' xs
+whatWentWrong' = map getLogMsg . filter highSeverity
 
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong = whatWentWrong'. sortMessages
