@@ -32,3 +32,7 @@ validMessagesOnly []                 = []
 validMessagesOnly ((ValidLM x):xs)   = x : validMessagesOnly xs
 validMessagesOnly ((InvalidLM _):xs) = validMessagesOnly xs
 
+
+parse :: String -> [LogMessage]
+parse = validMessagesOnly . map parseMessage . lines
+
