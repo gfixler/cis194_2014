@@ -47,13 +47,18 @@ sortMessages :: [LogMessage] -> [LogMessage]
 sortMessages = sortBy compareMsgs
 
 
+highSeverity :: LogMessage -> Bool
+highSeverity (LogMessage (Error n) _ _) = n >= 50
+highSeverity _                          = False
+
+getLogMsg :: LogMessage -> String
+getLogMsg (LogMessage _ _ s) = s
+
 whatWentWrong' :: [LogMessage] -> [String]
 whatWentWrong' [] = []
-whatWentWrong' ((LogMessage (Error n) _ s):xs) =
-    if n >= 50
-    then s : whatWentWrong' xs
-    else whatWentWrong' xs
-whatWentWrong' (_:xs) = whatWentWrong' xs
+whatWentWrong' (x:xs) = if highSeverity x
+                        then getLogMsg x : whatWentWrong' xs
+                        else whatWentWrong' xs
 
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong = whatWentWrong'. sortMessages
