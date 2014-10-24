@@ -1,9 +1,10 @@
 -- CIS 194 Homework 3
+{-# LANGUAGE PatternGuards #-}
 
 module Log where
 
 import Control.Applicative ( (<$>)     )
-import Text.Read           ( readMaybe )
+-- import Text.Read           ( readMaybe ) -- my old GHCI doesn't have this
 
 -- | The classification of a message
 data MessageType = Info
@@ -27,6 +28,14 @@ data MaybeInt = ValidInt Int
 
 -- The functions below will be useful while completing the assignment, but
 -- you are not expected to understand their details at this point.
+
+-- My GHCI is (at the time of this homework) severely out of date, so I
+-- don't have a readMaybe in Text.Read. This is from:
+-- http://stackoverflow.com/a/8067014/955926
+readMaybe :: (Read a) => String -> Maybe a
+readMaybe s = case reads s of
+              [(x, "")] -> Just x
+              _ -> Nothing
 
 -- | Convert a @String@ to an @Int@, allowing for the possibility
 -- of failure.
