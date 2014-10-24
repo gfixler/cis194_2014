@@ -70,3 +70,10 @@ messagesAbout :: String -> [LogMessage] -> [LogMessage]
 messagesAbout s = filter (msgContains s)
 
 
+(|||) :: (LogMessage -> Bool) -> (LogMessage -> Bool) -> LogMessage -> Bool
+(|||) f g x = f x || g x
+
+whatWentWrongEnhanced :: String -> [LogMessage] -> [String]
+whatWentWrongEnhanced s = map getLogMsg . filter soWrong . sortMessages
+    where soWrong = highSeverity ||| msgContains s
+
