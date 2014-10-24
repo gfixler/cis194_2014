@@ -4,6 +4,7 @@ module LogAnalysis where
 
 import Log
 import Data.List
+import Data.Char
 
 handleError :: String -> MaybeInt -> MaybeInt -> [String] -> MaybeLogMessage
 handleError _ (ValidInt l) (ValidInt t) xs =
@@ -56,4 +57,12 @@ whatWentWrong' (_:xs) = whatWentWrong' xs
 
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong = whatWentWrong'. sortMessages
+
+
+messagesAbout :: String -> [LogMessage] -> [LogMessage]
+messagesAbout _ [] = []
+messagesAbout s (x@(LogMessage _ _ s'):xs) =
+    if (map toUpper s) `isInfixOf` (map toUpper s')
+    then x : messagesAbout s xs
+    else messagesAbout s xs
 
