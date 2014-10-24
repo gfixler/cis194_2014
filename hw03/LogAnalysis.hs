@@ -45,3 +45,15 @@ compareMsgs (LogMessage _ t _) (LogMessage _ t' _) = compare t t'
 sortMessages :: [LogMessage] -> [LogMessage]
 sortMessages = sortBy compareMsgs
 
+
+whatWentWrong' :: [LogMessage] -> [String]
+whatWentWrong' [] = []
+whatWentWrong' ((LogMessage (Error n) _ s):xs) =
+    if n >= 50
+    then s : whatWentWrong' xs
+    else whatWentWrong' xs
+whatWentWrong' (_:xs) = whatWentWrong' xs
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong = whatWentWrong'. sortMessages
+
