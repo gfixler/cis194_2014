@@ -36,3 +36,11 @@ ex4 b x y = if b then x else y
 ex5 :: Bool -> Bool
 ex5 = not
 
+
+-- Exercise 6
+-- This function takes the id function, but then returns a
+-- concrete instance of the type passed to the id function,
+-- sans actual instance of said type. This is impossible.
+ex6 :: (a -> a) -> a
+ex6 = undefined
+
