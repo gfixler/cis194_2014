@@ -8,3 +8,10 @@ module HW04 where
 ex1 :: a -> b -> b
 ex1 _ x = x
 
+
+-- Exercise 2
+-- There are 2 possible outputs here - either input arg.
+-- Possible names for these functions include: right and left.
+ex2 :: a -> a -> a
+ex2 x _ = x
+
