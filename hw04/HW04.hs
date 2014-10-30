@@ -15,3 +15,9 @@ ex1 _ x = x
 ex2 :: a -> a -> a
 ex2 x _ = x
 
+
+-- Exercise 3
+-- This is another identity function with an extra appendage.
+ex3 :: Int -> a -> a
+ex3 _ x = x
+
