@@ -21,3 +21,11 @@ ex2 x _ = x
 ex3 :: Int -> a -> a
 ex3 _ x = x
 
+
+-- Exercise 4
+-- We can make a decision based on the Bool, but we have no
+-- idea what our as will be, so all we can do is return either.
+-- Thus, there are 2 functions possible with this type.
+ex4 :: Bool -> a -> a -> a
+ex4 b x y = if b then x else y
+
