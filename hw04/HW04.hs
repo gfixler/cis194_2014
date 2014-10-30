@@ -2,6 +2,8 @@
 
 module HW04 where
 
+import BST
+
 -- Exercise 1
 -- There is no source for bs; we must return the one we get.
 -- This is basically the identity function with an extra, useless argument.
@@ -86,4 +88,12 @@ ex11 = Just
 -- It's complete, but all we can do is return what we get.
 ex12 :: Maybe a -> Maybe a
 ex12 = id
+
+
+-- Exercise 13
+insertBST :: (a -> a -> Ordering) -> a -> BST a -> BST a
+insertBST _ x Leaf = Node Leaf x Leaf
+insertBST f x (Node l v r) =
+    if f x v == GT then Node l v (insertBST f x r)
+                   else Node (insertBST f x l) v r
 
