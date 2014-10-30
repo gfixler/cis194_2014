@@ -44,3 +44,11 @@ ex5 = not
 ex6 :: (a -> a) -> a
 ex6 = undefined
 
+
+-- Exercise 7
+-- This take a simple function on any type, and something of
+-- that type. As we have no idea what that function could do,
+-- the best we can do is return the instance, i.e. second arg.
+ex7 :: (a -> a) -> a -> a
+ex7 _ x = x
+
