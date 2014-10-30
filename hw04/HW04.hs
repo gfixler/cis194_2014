@@ -65,3 +65,11 @@ ex8 = reverse
 ex9 :: (a -> b) -> [a] -> [b]
 ex9 = map
 
+
+-- Exercise 10
+-- The only source we have for an a is in the Maybe, so we can
+-- only return it. However, we can't return a Nothing that we
+-- might get, so this function is incomplete.
+ex10 :: Maybe a -> a
+ex10 (Just a) = a
+
