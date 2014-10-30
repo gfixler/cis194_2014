@@ -80,3 +80,10 @@ ex10 (Just a) = a
 ex11 :: a -> Maybe a
 ex11 = Just
 
+
+-- Exercise 12
+-- This is the identity function lifted up into the Maybe type.
+-- It's complete, but all we can do is return what we get.
+ex12 :: Maybe a -> Maybe a
+ex12 = id
+
