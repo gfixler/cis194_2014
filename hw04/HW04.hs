@@ -29,3 +29,10 @@ ex3 _ x = x
 ex4 :: Bool -> a -> a -> a
 ex4 b x y = if b then x else y
 
+
+
+-- Exercise 5
+-- There are 4 valid implementations: not, id, True, False
+ex5 :: Bool -> Bool
+ex5 = not
+
