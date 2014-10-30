@@ -73,3 +73,10 @@ ex9 = map
 ex10 :: Maybe a -> a
 ex10 (Just a) = a
 
+
+-- Exercise 11
+-- This truly can take any type, so it's complete, and we don't
+-- even have to handle any Nothing cases; Nothing also works.
+ex11 :: a -> Maybe a
+ex11 = Just
+
