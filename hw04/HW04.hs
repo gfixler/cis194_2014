@@ -59,3 +59,9 @@ ex7 _ x = x
 ex8 :: [a] -> [a]
 ex8 = reverse
 
+
+-- Exercise 9
+-- The only possible implementation is map, which is complete.
+ex9 :: (a -> b) -> [a] -> [b]
+ex9 = map
+
