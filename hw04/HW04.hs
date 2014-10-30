@@ -30,7 +30,6 @@ ex4 :: Bool -> a -> a -> a
 ex4 b x y = if b then x else y
 
 
-
 -- Exercise 5
 -- There are 4 valid implementations: not, id, True, False
 ex5 :: Bool -> Bool
@@ -51,4 +50,12 @@ ex6 = undefined
 -- the best we can do is return the instance, i.e. second arg.
 ex7 :: (a -> a) -> a -> a
 ex7 _ x = x
+
+
+-- Exercise 8
+-- The only complete implementations here are reverse and id.
+-- There are arbitrarily many incomplete functions, such as
+-- tail/init, and const counts/indices with take/drop/sublist.
+ex8 :: [a] -> [a]
+ex8 = reverse
 
