@@ -114,3 +114,7 @@ safeTail (_:xs) = Just xs
 allCaps :: [String] -> Bool
 allCaps = all isUpper . mapMaybe safeHead
 
+-- Exercise 15
+dropTrailingWhitespace :: String -> String
+dropTrailingWhitespace = reverse . dropWhile (==' ') . reverse
+
