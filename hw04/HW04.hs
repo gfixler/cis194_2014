@@ -5,6 +5,7 @@ module HW04 where
 import BST
 import Data.Char (isUpper)
 import Data.Maybe (mapMaybe)
+import Data.List (intercalate)
 
 -- Exercise 1
 -- There is no source for bs; we must return the one we get.
@@ -121,4 +122,8 @@ dropTrailingWhitespace = reverse . dropWhile (==' ') . reverse
 -- Exercise 16
 firstLetters :: [String] -> [Char]
 firstLetters = mapMaybe safeHead
+
+-- Exercise 17
+asList :: [String] -> String
+asList xs = "[" ++ intercalate "," xs ++ "]"
 
