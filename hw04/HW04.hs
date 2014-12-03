@@ -118,3 +118,7 @@ allCaps = all isUpper . mapMaybe safeHead
 dropTrailingWhitespace :: String -> String
 dropTrailingWhitespace = reverse . dropWhile (==' ') . reverse
 
+-- Exercise 16
+firstLetters :: [String] -> [Char]
+firstLetters = mapMaybe safeHead
+
