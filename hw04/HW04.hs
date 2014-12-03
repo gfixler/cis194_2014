@@ -3,6 +3,8 @@
 module HW04 where
 
 import BST
+import Data.Char (isUpper)
+import Data.Maybe (mapMaybe)
 
 -- Exercise 1
 -- There is no source for bs; we must return the one we get.
@@ -107,4 +109,8 @@ safeHead (x:_) = Just x
 safeTail :: [a] -> Maybe [a]
 safeTail []     = Nothing
 safeTail (_:xs) = Just xs
+
+-- Exercise 14
+allCaps :: [String] -> Bool
+allCaps = all isUpper . mapMaybe safeHead
 
